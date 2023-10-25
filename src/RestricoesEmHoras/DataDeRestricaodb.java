@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 /**
@@ -22,6 +23,7 @@ public class DataDeRestricaodb {
     private Connection con;
     private PreparedStatement stmt;
     private ResultSet rs;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"); 
 
     public DataDeRestricaodb() {
 
@@ -36,10 +38,10 @@ public class DataDeRestricaodb {
                 + "VALUES ( ?, ?, ?, ?, ?)";
 
         try {
-
+            
             stmt = con.prepareStatement(sql);
-            stmt.setString(1, data.getDataInicial());
-            stmt.setString(2, data.getDataFinal());
+            stmt.setObject(1, data.getDataInicial());
+            stmt.setObject(2, data.getDataFinal());
             stmt.setDouble(3, data.getTotalHorasConsumida());
             stmt.setInt(4, data.getIdPacote());
             stmt.setInt(5, data.getIdPacote());
@@ -70,8 +72,8 @@ public class DataDeRestricaodb {
         try {
 
             stmt = con.prepareStatement(sql);
-            stmt.setString(1, data.getDataFinal());
-            stmt.setString(2, data.getDataFinal());
+            stmt.setObject(1, data.getDataInicial());
+            stmt.setObject(2, data.getDataFinal());
             stmt.executeUpdate();
 //
 //            JOptionPane.showMessageDialog(null, "Data data actualizada com sucesso");

@@ -5,6 +5,8 @@
  */
 package RestricoesEmHoras;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import javax.swing.JOptionPane;
 
 /**
@@ -17,16 +19,22 @@ public class DataDeRestricaoConnectiondb  {
     private DataHorasDeRestricao data;
     private DataDeRestricaoCalculos calculos;
     private CurrentDateAndTime dataDeHoje;
+    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm"); 
+
 
     public void salvar(int idPacote, double totalHorasConsumida, String dataInicial, String dataFinal) {
 
         datadb = new DataDeRestricaodb();
         data = new DataHorasDeRestricao();
-
+        
+        LocalDateTime dateTimeInicial = LocalDateTime.parse(dataInicial, formatter);
+        LocalDateTime dateTimeFinal = LocalDateTime.parse(dataFinal, formatter);
+        
+        
         data.setIdPacote(idPacote);
         data.setTotalHorasConsumida(totalHorasConsumida);
-        data.setDataInicial(dataInicial);
-        data.setDataFinal(dataFinal);
+        data.setDataInicial(dateTimeInicial);
+        data.setDataFinal(dateTimeFinal);
 
         boolean exiteUmPacoteEscolhido = datadb.ExistenciaDePacoteEscolhido();
 
