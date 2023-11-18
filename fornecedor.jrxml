@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="fornecedor" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c2e1790a-4de6-4730-87e9-140e58ac65ab">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT  *
+		FROM Fornecedor_tb
+		ORDER BY nome_fornecedor;]]>
+	</queryString>
+	<field name="id_fornecedor" class="java.lang.Integer"/>
+	<field name="nome_fornecedor" class="java.lang.String"/>
+	<field name="endereco" class="java.lang.String"/>
+	<field name="telemovel1" class="java.lang.String"/>
+	<field name="telemovel2" class="java.lang.String"/>
+	<field name="email" class="java.lang.String"/>
+	<field name="whats_app" class="java.lang.String"/>
+	<field name="contador" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="298" y="49" width="214" height="20" uuid="7f8d3211-ee75-4aca-a6ff-5cd28399ca76"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Lista de Fornecedores]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="607" y="0" width="195" height="20" uuid="937595cf-fa15-41fe-b444-6ec6eff3cc5b"/>
+				<textElement>
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="6" width="68" height="20" forecolor="#FFFFFF" backcolor="#666666" uuid="0db60822-a4d8-4f35-9df0-b7060782c2c4"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nº de Ordem]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="68" y="6" width="141" height="20" forecolor="#FFFFFF" backcolor="#666666" uuid="5bdc3c1b-cce3-48ae-ad31-1767dddeb47b"/>
+				<textElement verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="209" y="6" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666" uuid="0b1e315b-6b3f-4c7a-8fb3-ae94b9054dd8"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telemovel - 1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="309" y="6" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666" uuid="7267fa0d-88ba-45ba-8711-2c0dc9bb1845"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Telemovel - 2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="409" y="6" width="131" height="20" forecolor="#FFFFFF" backcolor="#666666" uuid="053b166c-1267-4562-b29f-102672fd6e46"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[email]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="540" y="6" width="100" height="20" forecolor="#FFFFFF" backcolor="#666666" uuid="454cd67c-7635-4a3e-b48c-7488c36b61b7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[whats_app]]></text>
+			</staticText>
+			<staticText>
+				<reportElement mode="Opaque" x="640" y="6" width="162" height="20" forecolor="#FFFFFF" backcolor="#666666" uuid="2f646287-7e41-4108-8846-3bcfc2fd701a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[endereco]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="21" splitType="Stretch">
+			<textField>
+				<reportElement x="68" y="0" width="141" height="20" uuid="6cf69f8d-a7f5-4c8c-ba8c-7062475d15dc"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nome_fornecedor}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="209" y="0" width="100" height="20" uuid="8befbd1a-c87a-459b-a403-31121d296089"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telemovel1}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="309" y="0" width="100" height="20" uuid="d3a9e159-6bc9-4a94-b19f-793e27ee04d6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{telemovel2}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="409" y="0" width="131" height="20" uuid="e77e59f2-caa0-4b99-bed5-6d02d7d04aa1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="540" y="0" width="100" height="20" uuid="32b22b79-06e1-4df8-af20-a1ac02a8197b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{whats_app}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="0" width="68" height="20" uuid="75c4f9cf-f6a3-4a22-838f-995af399ecd8"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{contador}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="640" y="0" width="162" height="20" uuid="8961fd66-9b38-44ca-9ed6-d2ad0d9361e9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{endereco}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="802" height="1" uuid="7fd166a7-9619-4a73-8361-f824c50d3202"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

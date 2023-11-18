@@ -6,6 +6,7 @@
 package RestricoesEmHoras;
 
 import Pacotes.Pacotes;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -17,7 +18,7 @@ public class DataHorasDeRestricao extends Pacotes {
 
     private double totalHorasConsumida;
 
-    private String dataInicial,
+    private LocalDateTime dataInicial,
             dataFinal;
 
     
@@ -26,7 +27,7 @@ public class DataHorasDeRestricao extends Pacotes {
     public DataHorasDeRestricao() {
     }
 
-    public DataHorasDeRestricao( int idDataDeRestricao, double totalHorasConsumida, String dataInicial, String dataFinal) {
+    public DataHorasDeRestricao( int idDataDeRestricao, double totalHorasConsumida, LocalDateTime dataInicial, LocalDateTime dataFinal) {
         this.idDataDeRestricao = idDataDeRestricao;
         this.totalHorasConsumida = totalHorasConsumida;
         this.dataInicial = dataInicial;
@@ -52,19 +53,19 @@ public class DataHorasDeRestricao extends Pacotes {
     }
 
 
-    public String getDataInicial() {
+    public LocalDateTime getDataInicial() {
         return dataInicial;
     }
 
-    public void setDataInicial(String dataInicial) {
+    public void setDataInicial(LocalDateTime dataInicial) {
         this.dataInicial = dataInicial;
     }
 
-    public String getDataFinal() {
+    public LocalDateTime getDataFinal() {
         return dataFinal;
     }
 
-    public void setDataFinal(String dataFinal) {
+    public void setDataFinal(LocalDateTime dataFinal) {
         this.dataFinal = dataFinal;
     }
     
